@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Untuk Pacarku</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <h1>Untuk Pacarku</h1>
+    <p class="tagline">Situs kecil ini dibuat spesial untukmu ❤️</p>
+  </header>
+
+  <main class="content">
+    <section id="bio" class="card">
+      <h2>dia adalah best experience dalam hidupku,</h2>
+      <p>Nama: Hawuwra
+      <p> Hobi: jajan, jalan-jalan, sama kadang bete tanpa alasan 😆</p>
+      <p>Yang aku suka dari dia: walaupun kadang suka bete, tapi justru itu yang bikin dia makin gemes dan nggak pernah ngebosenin.</p>
+</p>
+    </section>
+
+    <section id="gallery" class="card">
+      <h2>Foto Imuts Dia🫢🤭</h2>
+      <div class="grid">
+        <figure class="photo-bubble">
+          <img src="WhatsApp Image 2026-05-16 at 20.59.41.jpeg" alt="Foto 1" data-caption="Dia cuma ngirim satu foto, biasa aja sih kelihatannya. Tapi entah kenapa, langsung bikin mood naik.
+Nggak lebay, nggak dibuat-buat, tapi justru itu yang bikin beda. Kayak ada “rasa” yang nyampe gitu aja.
+Lucu sih… hal sesimpel itu bisa bikin aku senyum sendiri.."
+Lucu sih… hal sesimpel itu bisa bikin aku senyum sendiri..">
+        </figure>
+        <figure class="photo-bubble">
+          <img src="WhatsApp Image 2026-05-16 at 22.31.15.jpeg" alt="Foto 2" data-caption="Lagi scroll biasa, terus muncul foto dia. Yaudah… langsung ke-distract.
+Nggak tau kenapa, tapi vibe-nya tuh dapet banget. Bikin pengen liat lama-lama, kayak nggak bosen.
+Dan ya… akhirnya cuma bisa senyum sendiri sambil mikir, “kok bisa segemes ini sih?”.">
+
+        </figure>
+        <figure class="photo-bubble">
+          <img src="ppp.jpeg" alt="Foto 3" data-caption="Buat orang lain mungkin itu cuma foto doang. Tapi buat aku? beda cerita.
+Ada rasa nyaman, ada rasa deket, walaupun cuma lewat gambar. Kayak dia lagi nemenin, padahal nggak.
+Kadang emang gitu… yang bikin spesial bukan fotonya, tapi dia..">
+        </figure>
+      </div>
+      <p class="note">Klik foto untuk melihat lebih besar dan membaca isi singkatnya.</p>
+    </section>
+
+    <section id="message" class="card">
+      <h2>Pesan Untuknya</h2>
+      <div class="message-box">
+        <p>Aku cuma mau bilang, punya kamu itu hal yang paling aku syukuri. Kadang aku mungkin nggak selalu bisa jadi yang terbaik, tapi aku selalu berusaha buat tetap ada buat kamu.</p>
+        <p>Terima kasih sudah sabar, ngerti aku, dan tetap bertahan sampai sekarang. Aku harap kita bisa terus jalan bareng, lewati hal-hal kecil sampai yang besar, tanpa harus saling ninggalin.</p>
+        <p>Kalau suatu hari aku nyebelin atau bikin kamu capek, ingetin aku ya—aku nggak mau kehilangan kamu cuma karena hal-hal yang bisa kita perbaiki.</p>
+        <p class="message-highlight">Aku sayang kamu, bukan cuma sekarang, tapi aku juga mau terus sama kamu ke depannya 🤍</p>
+        <p class="message-signature">- Dari Mirza</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>© Dibuat dengan cinta.</p>
+  </footer>
+
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <div class="lightbox-content">
+      <button class="lightbox-close" aria-label="Tutup">×</button>
+      <img class="lightbox-img" src="" alt="Foto besar">
+      <p class="lightbox-text"></p>
+    </div>
+  </div>
+
+  <script>
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = lightbox.querySelector('.lightbox-img');
+    const lightboxText = lightbox.querySelector('.lightbox-text');
+    const closeButton = lightbox.querySelector('.lightbox-close');
+
+    document.querySelectorAll('.photo-bubble img').forEach(img => {
+      img.addEventListener('click', () => {
+        lightboxImg.src = img.src;
+        lightboxImg.alt = img.alt;
+        lightboxText.textContent = img.dataset.caption || '';
+        lightbox.classList.add('open');
+        lightbox.setAttribute('aria-hidden', 'false');
+      });
+    });
+
+    closeButton.addEventListener('click', () => {
+      lightbox.classList.remove('open');
+      lightbox.setAttribute('aria-hidden', 'true');
+    });
+
+    lightbox.addEventListener('click', event => {
+      if (event.target === lightbox) {
+        lightbox.classList.remove('open');
+        lightbox.setAttribute('aria-hidden', 'true');
+      }
+    });
+
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape' && lightbox.classList.contains('open')) {
+        lightbox.classList.remove('open');
+        lightbox.setAttribute('aria-hidden', 'true');
+      }
+    });
+  </script>
+</body>
+</html>
